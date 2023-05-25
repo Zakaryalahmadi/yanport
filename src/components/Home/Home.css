@@ -1,19 +1,21 @@
-.h-logo{
+.h-logo {
     display: flex;
     padding-left: 0px;
     padding-top: 0px;
     align-items: center;
 }
-.h-logo h1{
+
+.h-logo h1 {
     font-size: 1.4em;
     color: #FFF;
 }
 
-.next-step-button{
+.next-step-button {
     text-align: center;
     /* border: 1px solid red; */
 }
-.next-button{
+
+.next-button {
     padding: 15px 70px 15px 30px;
     border-radius: 30px;
     outline: none;
@@ -27,25 +29,97 @@
     position: relative;
     cursor: pointer;
 }
-.next-button img{
+
+.next-button img {
     position: absolute;
     top: 13px;
     right: 20px;
 }
 
-#h-section{
-    border: 1px solid red;
+#h-section {
+    /* border: 1px solid red; */
     display: flex;
     justify-content: space-between;
     height: 70vh;
     text-align: center;
+    width: 85%;
+    margin: auto;
 }
-.h-orientation,.h-position{
-    width: 20%;
+
+
+#h-section h3 {
+    color: white;
+    margin-top: 40px;
+    margin-bottom: 100px;
+    text-align: center;
+    font-size: 1.4em;
+
 }
-.h-orientation,.h-dimension,.h-position{
-    
-    background-color: antiquewhite;
-    border-radius: 30px;
-    background: #B2C9D6;
+
+.h-orientation,
+.h-position {
+    width: 25%;
+}
+
+.h-dimension {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.h-orientation,
+.h-dimension,
+.h-position {
+    border-radius: 15px;
+    background-color: #B2C9D6;
+}
+
+.h-orientation {
+    display: flex;
+    flex-direction: column;
+    padding-right: 30px;
+    padding-left: 30px;
+    justify-content: space-between;
+}
+
+.h-custom-select {
+    margin-bottom: 100px;
+
+    /* border: 1px solid red; */
+}
+
+.h-select {
+    width: 170px;
+    height: 50px;
+    appearance: none;
+    background: transparent;
+    background-image: url("../../assets/icones/arrow_select.svg");
+    background-repeat: no-repeat;
+    background-position-x: 101%;
+    background-position-y: 0px;
+    /* border: 1px solid #E6F5FB; */
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: #E6F5FB;
+    outline: none;
+}
+
+.h-rows {
+    margin-bottom: 90px;
+}
+
+.h-rows,
+.h-columns {
+    margin-right: 40px;
+    margin-left: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    /* border: 1px solid red; */
+    background-color: rgba(230, 245, 251, 0.27);
+}
+
+#h-section h4 {
+    color: white;
+    margin-bottom: 20px;
 }
