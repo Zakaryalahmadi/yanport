@@ -73,7 +73,7 @@ const Home = () => {
               Choisissez la direction de départ de votre iHoover
             </h3>
             <p className='h-orientation-logo'>
-              <img src={orientationIcon} alt="vacuum-home" width={150} height={150} />
+              <img src={orientationIcon} alt="vacuum-home" width={250} height={250} />
             </p>
           </div>
           <div className="h-custom-select">
