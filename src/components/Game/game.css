@@ -1,0 +1,159 @@
+.playground {
+    width: 100%;
+    min-height: 100%;
+    color: white;
+}
+
+.playground-config {
+    display: flex;
+}
+
+.grid {
+    width: 60vw;
+    display: grid;
+    height: 80vh;
+    background-color: black;
+    z-index: 0;
+    grid-gap: 1px;
+    border: 1px solid black;
+    border-bottom: 0;
+}
+
+.grid-item {
+    width: 100%;
+    background-color: white;
+}
+
+.playground-pad {
+    width: 25vw;
+    padding: 0 3.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.instructions {
+    font-size: smaller;
+    text-align: justify;
+    margin: 0 0 1rem 0;
+}
+
+.location {
+    font-weight: bold;
+    font-size: large;
+    line-height: 5px;
+    margin: 0 0 1rem 0;
+}
+
+.commands-list {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 1rem 0;
+}
+
+.commands-title {
+    font-weight: bold;
+}
+
+.commands-input {
+    background-color: transparent;
+    border: solid 1px white;
+    border-radius: 5px;
+    color: white;
+    margin: 0 1rem;
+    padding: 3px;
+    margin: 0 0 8px 0;
+}
+
+.commands {
+    margin: 0 0 4rem 0;
+}
+
+.instructions-buttons {
+    display: flex;
+    flex-direction: row;
+    margin: 0 0 1rem 0;
+}
+
+.control-button {
+    border-radius: 10px;
+    height: 4rem;
+    border: 2px solid white;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: inherit;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    margin: 0 10px;
+    width: 4rem;
+}
+
+.control-button:hover {
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 42px rgb(18, 188, 230),
+        0 0 77px rgb(18, 188, 230),
+        0 0 100px rgb(18, 188, 230);
+    animation: neon 2s infinite linear;
+    font-size: 1.1rem;
+}
+
+.reset-playground-button {
+    height: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: inherit;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    margin: 0 auto;
+    width: 22vw;
+    border: none;
+    outline: none;
+}
+
+.reset-playground-button:hover {
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 42px rgb(18, 188, 230),
+        0 0 77px rgb(18, 188, 230),
+        0 0 100px rgb(18, 188, 230);
+    animation: neon 2s infinite linear;
+    font-size: 1.2rem;
+}
+
+/* Responsive */
+@media screen and (max-width: 750px) {
+
+    .playground-config {
+        flex-direction: column;
+    }
+
+    .grid {
+        width: 100%;
+        height: 60vh;
+        margin: 0 0 1rem 0;
+    }
+
+    .playground-pad {
+        width: 100%;
+        padding: 0;
+    }
+
+    .location {
+        font-size: medium;
+    }
+
+    .commands {
+        margin: 0 0 3rem 0;
+    }
+
+    .reset-playground-button {
+        height: 1.2rem;
+        font-size: 1.2rem;
+        width: 100%;
+        margin: 0 auto 2rem auto;
+    }
+}

@@ -1,0 +1,11 @@
+.h-logo {
+    display: flex;
+    padding-left: 0px;
+    padding-top: 0px;
+    align-items: center;
+}
+
+.h-logo h1 {
+    font-size: 1.4em;
+    color: #FFF;
+}

@@ -4,13 +4,14 @@ import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 
 
-import logo from '../../assets/icones/vacuum.svg';
-import arrowRight from '../../assets/icones/arrow_stroke.svg';
+
 import columnsIcon from '../../assets/icones/columns.svg';
 import rowsIcon from '../../assets/icones/rows.svg';
 import orientationIcon from '../../assets/icones/orientation.svg';
 
 import PlayerContext from '../../contexts/PlayerContext';
+import Logo from '../Widgets/logo/logo';
+import CustomButton from '../Widgets/button/button';
 
 
 
@@ -59,18 +60,11 @@ const Home = () => {
   };
   return (
     <div className="home">
-      <div className="h-logo">
-        <img src={logo} alt="vacuum-home" width={150} height={150} />
-        <h1>IVacuum<br /> Controller</h1>
-      </div>
+      <Logo />
 
-      <div className="next-step-button">
-        <NavLink to="/playground">
-          <button type='submit' className="next-button" >
-            PROCHAINE ETAPE <img src={arrowRight} alt="arrow-right" width={27} height={27} />
-          </button>
-        </NavLink>
-      </div>
+
+      <CustomButton buttonText='PROCHAINE ETAPE' isItBackButton={false} />
+
 
       <div id="h-section">
         <div className="h-orientation">

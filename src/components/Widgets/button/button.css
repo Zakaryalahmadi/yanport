@@ -1,0 +1,25 @@
+.next-step-button {
+    text-align: center;
+    /* border: 1px solid red; */
+}
+
+.next-button {
+    padding: 15px 70px 15px 30px;
+    border-radius: 30px;
+    outline: none;
+    background: rgba(230, 245, 251, 0.27);
+    font-size: 1.3em;
+    font-weight: 400;
+    text-align: center;
+    border: none;
+    color: white;
+    margin-bottom: 40px;
+    position: relative;
+    cursor: pointer;
+}
+
+.next-button img {
+    position: absolute;
+    top: 13px;
+    right: 20px;
+}
