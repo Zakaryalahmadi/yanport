@@ -5,4 +5,3 @@ export const DEFAULT_VACCUM: IVacuum = {
     posY: 0,
     orientation: 'N',
 };
-

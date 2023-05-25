@@ -1,4 +1,4 @@
-export default interface IRoom{
+export default interface IRoom {
     columns: number;
     rows: number;
 }

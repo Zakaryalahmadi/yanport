@@ -1,72 +1,46 @@
 import { createContext, useState } from 'react';
+
 import IRoom from '../interfaces/IRoom';
 import IVacuum from '../interfaces/IVacuum';
-import { CurrentPlayergroundProps, PlayergroundContent } from './types/TPlayergroundContent';
+import { PlayerContent, PlayerProps } from './types/TFile';
 import { DEFAULT_VACCUM } from './Utils/utils';
 
 
-
-const PlayerGroundContext = createContext<PlayergroundContent>({
+const PlayerContext = createContext<PlayerContent>({
     room: { rows: 10, columns: 10 },
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
     setRoom: () => { },
     vacuum: DEFAULT_VACCUM,
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
     setVacuum: () => { },
     moveVacuum: () => DEFAULT_VACCUM,
     moveVacuumViaInstructions: () => DEFAULT_VACCUM,
 });
 
-// Create the context provider component
-export const CurrentPlaygroundContextProvider = ({
+export const PlayerContextProvider = ({
     children,
-}: CurrentPlayergroundProps) => {
+}: PlayerProps) => {
     const [room, setRoom] = useState<IRoom>({ rows: 10, columns: 10 });
-    const [vacuum, setVacuum] = useState<IVacuum>(DEFAULT_VACCUM);
+    const [vacuum, setVacuum] = useState<IVacuum>({
+        posX: 0,
+        posY: 0,
+        orientation: 'N',
+    });
 
-    // Move the vacuum based on instructions
+    // takes an instructions strings and move the vacuum to the final position
     const moveVacuumViaInstructions = (instructions: string, vacuum: IVacuum): IVacuum => {
-
-        let TempoVacuum = vacuum;
+        // creates a temporary vacuum to calculate final destination
+        let tempovacuum = vacuum;
         for (let i = 0; i < instructions.length; i++) {
-            TempoVacuum = moveVacuum(instructions[i], TempoVacuum);
+            tempovacuum = moveVacuum(instructions[i], tempovacuum);
         }
         return {
-            posX: TempoVacuum.posX,
-            posY: TempoVacuum.posY,
-            orientation: TempoVacuum.orientation,
+            posX: tempovacuum.posX,
+            posY: tempovacuum.posY,
+            orientation: tempovacuum.orientation,
         };
     };
 
     const moveVacuum = (command: string, vacuumToMove: IVacuum): IVacuum => {
         switch (command) {
-            case 'g' || 'G':
-                if (vacuumToMove.orientation === 'N') {
-                    return {
-                        posX: vacuumToMove.posX,
-                        posY: vacuumToMove.posY,
-                        orientation: 'W',
-                    };
-                } else if (vacuumToMove.orientation === 'W') {
-                    return {
-                        posX: vacuumToMove.posX,
-                        posY: vacuumToMove.posY,
-                        orientation: 'S',
-                    };
-                } else if (vacuumToMove.orientation === 'S') {
-                    return {
-                        posX: vacuumToMove.posX,
-                        posY: vacuumToMove.posY,
-                        orientation: 'E',
-                    };
-                } else if (vacuumToMove.orientation === 'E') {
-                    return {
-                        posX: vacuumToMove.posX,
-                        posY: vacuumToMove.posY,
-                        orientation: 'N',
-                    };
-                }
-                break;
             case 'd' || 'D':
                 if (vacuumToMove.orientation === 'N') {
                     return {
@@ -87,6 +61,33 @@ export const CurrentPlaygroundContextProvider = ({
                         orientation: 'W',
                     };
                 } else if (vacuumToMove.orientation === 'W') {
+                    return {
+                        posX: vacuumToMove.posX,
+                        posY: vacuumToMove.posY,
+                        orientation: 'N',
+                    };
+                }
+                break;
+            case 'g' || 'G':
+                if (vacuumToMove.orientation === 'N') {
+                    return {
+                        posX: vacuumToMove.posX,
+                        posY: vacuumToMove.posY,
+                        orientation: 'W',
+                    };
+                } else if (vacuumToMove.orientation === 'W') {
+                    return {
+                        posX: vacuumToMove.posX,
+                        posY: vacuumToMove.posY,
+                        orientation: 'S',
+                    };
+                } else if (vacuumToMove.orientation === 'S') {
+                    return {
+                        posX: vacuumToMove.posX,
+                        posY: vacuumToMove.posY,
+                        orientation: 'E',
+                    };
+                } else if (vacuumToMove.orientation === 'E') {
                     return {
                         posX: vacuumToMove.posX,
                         posY: vacuumToMove.posY,
@@ -158,7 +159,7 @@ export const CurrentPlaygroundContextProvider = ({
     };
 
     return (
-        <PlayerGroundContext.Provider
+        <PlayerContext.Provider
             value={{
                 room,
                 setRoom,
@@ -168,8 +169,8 @@ export const CurrentPlaygroundContextProvider = ({
                 moveVacuumViaInstructions,
             }}>
             {children}
-        </PlayerGroundContext.Provider>
+        </PlayerContext.Provider>
     );
 };
 
-export default PlayerGroundContext;
+export default PlayerContext;
