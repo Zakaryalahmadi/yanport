@@ -21,4 +21,8 @@ git clone https://github.com/Zakaryalahmadi/yanport.git``
 
 ``npm install``
 
+# Running the Project
+
+``npx vite``
+
 This command will start the development server and your project will be accessible at http://localhost:XXX.
