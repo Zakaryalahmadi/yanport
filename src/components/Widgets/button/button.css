@@ -6,7 +6,6 @@
 .next-button,
 .back-button {
     padding: 15px 70px 15px 70px;
-    width: 40%;
     border-radius: 30px;
     outline: none;
     background: rgba(230, 245, 251, 0.27);

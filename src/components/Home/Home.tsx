@@ -77,6 +77,7 @@ const Home = () => {
               className="h-select"
               name="orientations"
               id="orientation-select"
+              value={vacuum.orientation}
               onChange={handleChangeVacuumOrientation}>
               <option value="N">nord</option>
               <option value="E">est</option>

@@ -38,12 +38,13 @@ const Game = () => {
     };
 
 
-    const resetInstructions = () => {
+    const resetInstructions = (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
         setVacuumInstructions('');
     };
 
-    const handleKeyUpInstruction = (event: React.KeyboardEvent) => {
-        const allowedKeys = ['a', 'A', 'd', 'D', 'g', 'G', 'Backspace'];
+    const handleKeyDownInstruction = (event: React.KeyboardEvent) => {
+        const allowedKeys = ['a', 'A', 'd', 'D', 'g', 'G'];
         const keyPressed = event.key.toUpperCase();
 
         if (!allowedKeys.includes(keyPressed)) {
@@ -69,7 +70,7 @@ const Game = () => {
         );
     }
 
-
+    
     return (
         <div className="game">
             <Logo />
@@ -78,7 +79,7 @@ const Game = () => {
                 <CustomButton buttonText='ETAPE PRECEDENTE' isItBackButton={true} link={'/'} />
 
                 <form onSubmit={handleChange} className="instructions-list">
-                    <button className="instructions-button reset-btn" onClick={resetInstructions}>
+                    <button className="instructions-button reset-btn" onClick={(e) => resetInstructions(e)}>
                         <img src={resetIcon} width={30} height={30} alt="reset-button" />
                     </button>
 
@@ -86,13 +87,11 @@ const Game = () => {
                         onChange={handleVacuumInstructions}
                         className="instructions-input"
                         type="text"
-                        onKeyDown={handleKeyUpInstruction}
+                        onKeyDown={handleKeyDownInstruction}
                         placeholder="Entrez vos commandes"
                         value={vacuumInstructions}
                     />
-                    {/* <button className="instructions-button submit-btn" type="submit">
-                        <img src={submitIcon} width={30} height={30} alt="submit-button" />
-                    </button> */}
+                    
                 </form>
             </div>
 
@@ -113,11 +112,11 @@ const Game = () => {
                             </div>
 
                             <div className='coord-label'>
-                                <img src={xIcon} alt="" />
+                                <img src={xIcon} alt="x-coord  icon" />
                                 <p>{vacuum.posX}</p>
                             </div>
                             <div className='coord-label'>
-                                <img src={yIcon} alt="" />
+                                <img src={yIcon} alt="y-coord  icon" />
                                 <p>{vacuum.posY}</p>
                             </div>
 
