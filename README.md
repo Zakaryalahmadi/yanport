@@ -1,7 +1,3 @@
-# Project Name
-
-Project Description
-
 ## Getting Started
 
 To get started with this project, please follow the instructions below.
@@ -18,4 +14,8 @@ Make sure you have the following tools installed on your machine:
 1. Clone the repository:
 
 ```shell
-git clone https://github.com/your-username/project.git
+git clone https://github.com/your-username/project.git 
+
+3. Install the project dependencies:
+```shell
+npm install
