@@ -14,7 +14,8 @@ Make sure you have the following tools installed on your machine:
 1. Clone the repository:
 
 ```shell
-git clone https://github.com/your-username/project.git 
+git clone https://github.com/your-username/project.git```
+
 
 3. Install the project dependencies:
 ```shell
