@@ -6,8 +6,8 @@ const Logo = () => {
 
     return (
         <div className="h-logo">
-            <img src={logo} alt="vacuum-home" width={150} height={150} />
-            <h1>IVacuum<br /> Controller</h1>
+            <img src={logo} alt="vacuum-home" width={250} height={150} />
+            <h1>Vacuum<br /> Controller</h1>
         </div>
     );
 }

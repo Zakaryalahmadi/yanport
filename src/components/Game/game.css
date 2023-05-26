@@ -1,159 +1,142 @@
-.playground {
-    width: 100%;
-    min-height: 100%;
-    color: white;
-}
-
-.playground-config {
+.top-game {
     display: flex;
 }
 
-.grid {
+.instructions-list {
+    width: 40%;
+    display: flex;
+    height: 50px;
+
+}
+
+.instructions-input {
+    width: 100%;
+    height: 50px;
+    background: #E6F5FB;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-left: 20px;
+}
+
+.instructions-list button {
+    outline: none;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 75px;
+}
+
+.reset-btn {
+    background-color: #B08989;
+}
+
+.submit-btn {
+    background-color: #8AB089;
+}
+
+.g-config {
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+    margin: auto;
+    height: 70vh;
+    /* border: 1px solid red; */
+}
+
+.g-pad {
+    width: 25%;
+}
+
+.g-position,
+.g-commands-container {
+    background: rgba(230, 245, 251, 0.27);
+    box-shadow: 0px 5px 30px rgba(107, 109, 111, 0.2);
+    border-radius: 10px;
+    height: 30%;
+}
+
+.g-position h3,
+.g-commands-container h3 {
+    color: white;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.g-commands-container h3 span {
+    font-size: 0.9;
+    font-weight: 200;
+
+}
+
+.coord-content {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.coord-label {
+    background: #E6F5FB;
+    border-radius: 10px;
+    width: 10%;
+    height: 86px;
+}
+
+.coord-label p,
+.coord-label img {
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 1.2em;
+    color: #6B6D6E;
+}
+
+.g-commands-container {
+    height: 60%;
+    margin-top: 10%;
+}
+
+.g-commands-arrow {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.g-commands-arrow .img-pointer-btn {
+    cursor: pointer;
+    -webkit-box-shadow: 5px 5px 15px -3px #52555C;
+    box-shadow: 5px 5px 15px -3px #52555C;
+    border-radius: 10px;
+}
+
+.img-clickable {
+    cursor: pointer;
+}
+
+.room {
     width: 60vw;
     display: grid;
-    height: 80vh;
-    background-color: black;
+    height: 62vh;
+    background-color: rgba(230, 245, 251, 0.27);
     z-index: 0;
-    grid-gap: 1px;
-    border: 1px solid black;
-    border-bottom: 0;
+    grid-gap: 5px;
+    border: 6px solid #E6F5FB;
+    padding: 20px;
+    border-radius: 20px;
+    margin-left: 8%;
+    /* overflow: auto; */
 }
 
-.grid-item {
-    width: 100%;
-    background-color: white;
-}
-
-.playground-pad {
-    width: 25vw;
-    padding: 0 3.5rem;
-    display: flex;
-    flex-direction: column;
-}
-
-.instructions {
-    font-size: smaller;
-    text-align: justify;
-    margin: 0 0 1rem 0;
-}
-
-.location {
-    font-weight: bold;
-    font-size: large;
-    line-height: 5px;
-    margin: 0 0 1rem 0;
-}
-
-.commands-list {
-    display: flex;
-    flex-direction: column;
-    margin: 0 0 1rem 0;
-}
-
-.commands-title {
-    font-weight: bold;
-}
-
-.commands-input {
-    background-color: transparent;
-    border: solid 1px white;
+.room-item {
+    /* width: 60px;
+    height: 60px; */
+    background-color: #E6F5FB;
     border-radius: 5px;
-    color: white;
-    margin: 0 1rem;
-    padding: 3px;
-    margin: 0 0 8px 0;
-}
-
-.commands {
-    margin: 0 0 4rem 0;
-}
-
-.instructions-buttons {
-    display: flex;
-    flex-direction: row;
-    margin: 0 0 1rem 0;
-}
-
-.control-button {
-    border-radius: 10px;
-    height: 4rem;
-    border: 2px solid white;
-    font-size: 1rem;
-    font-weight: bold;
-    font-family: inherit;
-    background-color: transparent;
-    color: white;
-    cursor: pointer;
-    margin: 0 10px;
-    width: 4rem;
-}
-
-.control-button:hover {
-    text-shadow:
-        0 0 7px #fff,
-        0 0 10px #fff,
-        0 0 42px rgb(18, 188, 230),
-        0 0 77px rgb(18, 188, 230),
-        0 0 100px rgb(18, 188, 230);
-    animation: neon 2s infinite linear;
-    font-size: 1.1rem;
-}
-
-.reset-playground-button {
-    height: 1rem;
-    font-size: 1rem;
-    font-weight: bold;
-    font-family: inherit;
-    background-color: transparent;
-    color: white;
-    cursor: pointer;
-    margin: 0 auto;
-    width: 22vw;
-    border: none;
-    outline: none;
-}
-
-.reset-playground-button:hover {
-    text-shadow:
-        0 0 7px #fff,
-        0 0 10px #fff,
-        0 0 42px rgb(18, 188, 230),
-        0 0 77px rgb(18, 188, 230),
-        0 0 100px rgb(18, 188, 230);
-    animation: neon 2s infinite linear;
-    font-size: 1.2rem;
-}
-
-/* Responsive */
-@media screen and (max-width: 750px) {
-
-    .playground-config {
-        flex-direction: column;
-    }
-
-    .grid {
-        width: 100%;
-        height: 60vh;
-        margin: 0 0 1rem 0;
-    }
-
-    .playground-pad {
-        width: 100%;
-        padding: 0;
-    }
-
-    .location {
-        font-size: medium;
-    }
-
-    .commands {
-        margin: 0 0 3rem 0;
-    }
-
-    .reset-playground-button {
-        height: 1.2rem;
-        font-size: 1.2rem;
-        width: 100%;
-        margin: 0 auto 2rem auto;
-    }
+    /* border: 1px solid red; */
 }

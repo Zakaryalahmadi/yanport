@@ -1,8 +1,6 @@
 import './Home.css';
 
 import React, { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
-
 
 
 import columnsIcon from '../../assets/icones/columns.svg';
@@ -63,19 +61,17 @@ const Home = () => {
       <Logo />
 
 
-      <CustomButton buttonText='PROCHAINE ETAPE' isItBackButton={false} />
+      <CustomButton buttonText='PROCHAINE ETAPE' isItBackButton={false} link={'/game'} />
 
 
       <div id="h-section">
         <div className="h-orientation">
-          <div>
-            <h3>
-              Choisissez la direction de départ de votre iHoover
-            </h3>
-            <p className='h-orientation-logo'>
-              <img src={orientationIcon} alt="vacuum-home" width={250} height={250} />
-            </p>
-          </div>
+          <h3>
+            Choisissez la direction de départ de votre Vacuum
+          </h3>
+          <p className='h-orientation-logo'>
+            <img src={orientationIcon} alt="vacuum-home" width={300} height={300} />
+          </p>
           <div className="h-custom-select">
             <select
               className="h-select"
@@ -103,6 +99,7 @@ const Home = () => {
                 className="h-input"
                 type="number"
                 value={room.columns}
+                min={0}
                 onChange={handleChangeColumnsNumber}></input>
             </div>
           </div>
@@ -114,31 +111,41 @@ const Home = () => {
                 className="h-input"
                 type="number"
                 value={room.rows}
+                min={0}
                 onChange={handleChangeRowsNumber}></input>
             </div>
           </div>
 
+
+
         </div>
 
         <div className="h-position">
-          <h3>Position initiale de iVacuum</h3>
+          <h3>Position initiale de Vacuum</h3>
           <div className="h-option">
+            <span className='h-X'>X</span>
             <h4>Position horizontale</h4>
             <input
               className="h-input"
               type="number"
               value={vacuum.posX}
+              min={0}
+              max={room.columns - 1}
               onChange={handleChangeVacuumPosX}></input>
 
           </div>
           <div className="h-option">
-            <label htmlFor="vertical">Position verticale</label>
+            <span className='h-Y'>Y</span>
+            <h4>Position verticale</h4>
             <input
               className="form-input"
               type="number"
               value={vacuum.posY}
+              min={0}
+              max={room.rows - 1}
               onChange={handleChangeVacuumPosY}></input>
           </div>
+
         </div>
       </div>
     </div >
