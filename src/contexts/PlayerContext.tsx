@@ -19,25 +19,22 @@ export const PlayerContextProvider = ({
     children,
 }: PlayerProps) => {
     const [room, setRoom] = useState<IRoom>({ rows: 10, columns: 10 });
-    const [vacuum, setVacuum] = useState<IVacuum>({
-        posX: 0,
-        posY: 0,
-        orientation: 'N',
-    });
+    const [vacuum, setVacuum] = useState<IVacuum>(DEFAULT_VACCUM);
 
-    // takes an instructions strings and move the vacuum to the final position
     const moveVacuumViaInstructions = (instructions: string, vacuum: IVacuum): IVacuum => {
-        // creates a temporary vacuum to calculate final destination
-        let tempovacuum = vacuum;
+        let tempovacuum: IVacuum = vacuum;
+
         for (let i = 0; i < instructions.length; i++) {
             tempovacuum = moveVacuum(instructions[i], tempovacuum);
         }
+
         return {
             posX: tempovacuum.posX,
             posY: tempovacuum.posY,
             orientation: tempovacuum.orientation,
         };
     };
+
 
     const moveVacuum = (command: string, vacuumToMove: IVacuum): IVacuum => {
         switch (command) {

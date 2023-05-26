@@ -42,17 +42,31 @@ const Game = () => {
         setVacuumInstructions('');
     };
 
+    const handleKeyUpInstruction = (event: React.KeyboardEvent) => {
+        const allowedKeys = ['a', 'A', 'd', 'D', 'g', 'G', 'Backspace'];
+        const keyPressed = event.key.toUpperCase();
 
-
-    const handleAnswerChange = (event: React.KeyboardEvent): void => {
-        if (event.key === 'd' || event.key === 'D') {
-            setVacuum(moveVacuum('d', vacuum));
+        if (!allowedKeys.includes(keyPressed)) {
+            event.preventDefault();
+            return;
         }
-        else if (event.key === 'G' || event.key === 'G') {
+
+        if (keyPressed === 'D') {
+            setVacuum(moveVacuum('d', vacuum));
+        } else if (keyPressed === 'G') {
             setVacuum(moveVacuum('g', vacuum));
-        } else if (event.key === 'a' || event.key === 'A') {
+        } else if (keyPressed === 'A') {
             setVacuum(moveVacuum('a', vacuum));
         }
+    }
+
+
+    function generateRoomItems() {
+        return Array.from({ length: room.rows }, (_v, row) =>
+            Array.from({ length: room.columns }, (_v, col) => (
+                <div className="room-item" key={`${row}-${col}`} />
+            ))
+        );
     }
 
 
@@ -72,13 +86,13 @@ const Game = () => {
                         onChange={handleVacuumInstructions}
                         className="instructions-input"
                         type="text"
-                        onKeyDown={checkInstructions}
+                        onKeyDown={handleKeyUpInstruction}
                         placeholder="Entrez vos commandes"
                         value={vacuumInstructions}
                     />
-                    <button className="instructions-button submit-btn" type="submit">
+                    {/* <button className="instructions-button submit-btn" type="submit">
                         <img src={submitIcon} width={30} height={30} alt="submit-button" />
-                    </button>
+                    </button> */}
                 </form>
             </div>
 
@@ -157,11 +171,7 @@ const Game = () => {
                         gridTemplateRows: `repeat(${room.rows}, 1fr)`,
                         gridTemplateColumns: `repeat(${room.columns}, 1fr)`,
                     }}>
-                    {Array.from({ length: room.rows }, (_v, k) => k).map(() =>
-                        Array.from({ length: room.columns }, (_v, k) => k).map((_item, index) => (
-                            <div className="room-item" key={index} />
-                        )),
-                    )}
+                    {generateRoomItems()}
                     <Vacuum vacuum={vacuum} room={room} />
                 </div>
             </div>
