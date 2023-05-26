@@ -13,10 +13,12 @@ Make sure you have the following tools installed on your machine:
 
 1. Clone the repository:
 
-```shell
-git clone https://github.com/your-username/project.git```
+`shell
+git clone https://github.com/your-username/project.git`
 
 
 3. Install the project dependencies:
-```shell
-npm install
+`shell
+npm install`
+
+This command will start the development server and your project will be accessible at http://localhost:XXX.
