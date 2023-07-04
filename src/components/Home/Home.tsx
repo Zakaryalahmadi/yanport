@@ -10,6 +10,7 @@ import orientationIcon from '../../assets/icones/orientation.svg';
 import PlayerContext from '../../contexts/PlayerContext';
 import Logo from '../Widgets/logo/logo';
 import CustomButton from '../Widgets/button/button';
+import { EOrientation } from '../../contexts/enums/enums';
 
 
 
@@ -51,11 +52,15 @@ const Home = () => {
 
 
   const handleChangeVacuumOrientation = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setVacuum({
-      ...vacuum,
-      orientation: String(e.currentTarget.value),
-    });
-  };
+    const newOrientation = e.currentTarget.value as EOrientation;
+    if (Object.values(EOrientation).includes(newOrientation)) {
+        setVacuum({
+            ...vacuum,
+            orientation: newOrientation,
+        });
+    }
+};
+
   return (
     <div className="home">
       <Logo />

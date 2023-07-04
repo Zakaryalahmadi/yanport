@@ -1,17 +1,11 @@
-import IVacuum from "../../interfaces/IVacuum";
-
-export const DEFAULT_VACCUM: IVacuum = {
-    posX: 0,
-    posY: 0,
-    orientation: 'N',
-};
+import { ECommand, EOrientation } from "../enums/enums";
 
 
 export const checkInstructions = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (
-        e.key !== ('d' || 'D') &&
-        e.key !== ('g' || 'G') &&
-        e.key !== ('a' || 'A') &&
+        e.key !== (ECommand.Right) &&
+        e.key !== (ECommand.Left) &&
+        e.key !== (ECommand.Advance) &&
         e.key !== 'Enter' &&
         e.key !== 'Backspace'
     ) {
@@ -19,18 +13,17 @@ export const checkInstructions = (e: React.KeyboardEvent<HTMLDivElement>) => {
     }
 };
 
-export const getRotation = (orientation: string): number => {
+export const getRotation = (orientation: EOrientation): number => {
     switch (orientation) {
-        case 'N':
+        case EOrientation.North:
             return 0;
-        case 'E':
+        case EOrientation.East:
             return 90;
-        case 'S':
+        case EOrientation.South:
             return 180;
-        case 'W':
+        case EOrientation.West:
             return 270;
     }
-    return 0;
 };
 
 
